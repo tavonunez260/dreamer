@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-lg) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-lg) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-xs) {
+    font-size: 37.5%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-primary;
+}

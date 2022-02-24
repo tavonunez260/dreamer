@@ -1,0 +1,38 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 36em) {
+    html {
+      font-size: 37.5%; } }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+body {
+  font-family: "Rubik", "Sans Serif"; }
+
+header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex; }
+  header::before {
+    content: "";
+    background-image: url("/img/SantaMarta_CompressedWeb.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.75; }
