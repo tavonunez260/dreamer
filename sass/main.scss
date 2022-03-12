@@ -1,3 +1,4 @@
+@import "abstracts/animations";
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
@@ -8,3 +9,7 @@
 @import "layout/header";
 @import "layout/main";
 @import "layout/footer";
+
+@import "components/headerbackground";
+@import "components/logo";
+@import "components/navbar";

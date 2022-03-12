@@ -1,3 +1,21 @@
+@keyframes dropDown {
+  0% {
+    transform: scaleY(0); }
+  100% {
+    transform: scaleY(1); } }
+
+@keyframes dropDownReverse {
+  0% {
+    transform: scaleY(1); }
+  100% {
+    transform: scaleY(0); } }
+
+@keyframes zoomHeaderBackground {
+  0% {
+    transform: scale(0.9); }
+  100% {
+    trasform: scale(1.15); } }
+
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
@@ -24,15 +42,157 @@ body {
 header {
   position: relative;
   height: 100vh;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset 0 0px 1000px -10px black; }
+
+.main {
+  height: 100vh; }
+
+.header-background {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.85;
+  z-index: -1;
   width: 100%;
-  display: flex; }
-  header::before {
+  height: 100%;
+  animation: zoomHeaderBackground 1s; }
+
+.logo {
+  width: 35%;
+  margin-top: 30vh;
+  order: 1; }
+  @media only screen and (max-width: 48em) {
+    .logo {
+      order: 2;
+      margin-top: 0;
+      margin-bottom: 45vh; } }
+
+.navbar__element {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  @media only screen and (max-width: 48em) {
+    .navbar__element {
+      height: 12rem;
+      border-bottom: 1px solid #FFFFFF; } }
+  .navbar__element::before {
     content: "";
-    background-image: url("/img/SantaMarta_CompressedWeb.jpg");
-    background-size: cover;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    opacity: 0.75; }
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #0098CE;
+    transform: scaleY(0);
+    transition: all 0.4s;
+    transform-origin: bottom;
+    z-index: -1; }
+    @media only screen and (max-width: 48em) {
+      .navbar__element::before {
+        content: none; } }
+  .navbar__element--active {
+    background-color: #0098CE; }
+  .navbar__element:hover::before {
+    transform: scaleY(1);
+    height: 100%; }
+
+.navbar__items {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  height: 100%; }
+  @media only screen and (max-width: 48em) {
+    .navbar__items {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: calc(100vh - 10rem);
+      background: #0098CE;
+      top: 100%;
+      left: 0;
+      animation: dropDownReverse .3s;
+      animation-fill-mode: forwards;
+      transform-origin: bottom; } }
+  @media only screen and (max-width: 48em) {
+    .navbar__items--active {
+      display: block;
+      height: calc(100vh - 10rem);
+      animation: dropDown .3s;
+      animation-fill-mode: forwards;
+      transform-origin: top; } }
+
+.navbar__layout {
+  position: relative;
+  display: flex;
+  width: max-content;
+  height: 10rem;
+  order: 2; }
+  @media only screen and (max-width: 48em) {
+    .navbar__layout {
+      order: 1;
+      width: 100%;
+      justify-content: space-between;
+      background-color: transparent; } }
+  @media only screen and (max-width: 48em) {
+    .navbar__layout--active {
+      background-color: #0098CE; } }
+
+.navbar__link {
+  padding: 0 1.5rem;
+  letter-spacing: 2px; }
+  .navbar__link:link, .navbar__link:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    color: #FFFFFF; }
+
+.navbar__list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  height: 100%; }
+  @media only screen and (max-width: 48em) {
+    .navbar__list {
+      width: 100%;
+      display: block;
+      text-align: center; } }
+
+.navbar__logo_img {
+  display: inline-block;
+  width: 20rem;
+  height: auto;
+  padding: 1rem; }
+
+.navbar__logo_link {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.navbar--menu-container {
+  display: none; }
+  @media only screen and (max-width: 48em) {
+    .navbar--menu-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; } }
+
+.navbar--menu-icon {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  margin: 1rem;
+  flex-basis: 50%;
+  fill: #FFFFFF; }
