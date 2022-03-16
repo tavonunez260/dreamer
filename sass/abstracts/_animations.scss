@@ -1,14 +1,25 @@
 @keyframes dropDown {
-  0% { transform: scaleY(0); }
-  100% { transform: scaleY(1); }
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 @keyframes dropDownReverse {
-  0% { transform: scaleY(1); }
-  100% { transform: scaleY(0); }
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
 }
 
 @keyframes zoomHeaderBackground {
-  0% { transform: scale(1); }
-  100% { trasform: scale(1.15); }
+  0% {
+    transform: scale(1);
+  }
+  100% { transform: scale(1.15);
+  }
 }

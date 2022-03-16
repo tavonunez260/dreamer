@@ -5,6 +5,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: none;
+    user-select: none;
     @media only screen and (max-width: $bp-sm) {
       height: 12rem;
       border-bottom: 1px solid $white-color;
@@ -16,7 +18,7 @@
       bottom: 0;
       width: 100%;
       height: 0;
-      background-color: $primary-color;
+      background-color: $navbar-color;
       transform: scaleY(0);
       transition: all 0.4s;
       transform-origin: bottom;
@@ -26,7 +28,7 @@
       }
     }
     &--active {
-      background-color: $primary-color;
+      background-color: $navbar-color;
     }
     &:hover::before {
       transform: scaleY(1);
@@ -41,22 +43,29 @@
     align-items: center;
     height: 100%;
     @media only screen and (max-width: $bp-sm) {
-      display: none;
       position: absolute;
       width: 100%;
       height: calc(100vh - 10rem);
-      background: #0098CE;
+      background: $navbar-color;
       top: 100%;
       left: 0;
-      animation: dropDownReverse .3s;
-      animation-fill-mode: forwards;
-      transform-origin: bottom;
     }
-    &--active {
+    &.dissapear {
+      @media only screen and (max-width: $bp-sm) {
+        display: none;
+      }
+    }
+    &.active {
       @media only screen and (max-width: $bp-sm) {
         display: block;
-        height: calc(100vh - 10rem);
         animation: dropDown .3s;
+        transform-origin: top;
+      }
+    }
+    &.inactive {
+      @media only screen and (max-width: $bp-sm) {
+        display: block;
+        animation: dropDownReverse .3s;
         animation-fill-mode: forwards;
         transform-origin: top;
       }
@@ -73,19 +82,17 @@
       width: 100%;
       justify-content: space-between;
       background-color: transparent;
-      //transition: all 0.5s;
-    }
-    &--active {
-      @media only screen and (max-width: $bp-sm) {
-        background-color: $primary-color;
-      }
+      background-color: $navbar-color;
     }
   }
   &__link {
     padding: 0 1.5rem;
     letter-spacing: 2px;
+    outline: none;
+    user-select: none;
     &:link,
-    &:visited {
+    &:visited,
+    &:focus {
       text-decoration: none;
       text-transform: uppercase;
       display: block;
@@ -104,7 +111,7 @@
     }
   }
   &__logo-container {
-
+    margin: 0 16px;
   }
   &__logo_img {
     display: inline-block;

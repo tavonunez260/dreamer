@@ -9,8 +9,15 @@ class NavBar {
     this.responsiveButton.addEventListener('click', this._deployResponsiveMenu.bind(this))
   }
   _deployResponsiveMenu(e) {
-    this.navbarItems.classList.toggle('navbar__items--active')
-    this.navbarLayout.classList.toggle('navbar__layout--active')
+    if(!this.open) {
+      this.navbarItems.classList.add('active')
+      this.navbarItems.classList.remove('inactive')
+      this._toggleOpen()
+    } else {
+      this.navbarItems.classList.remove('active')
+      this.navbarItems.classList.add('inactive')
+      this._toggleOpen()
+    }
   }
   _toggleOpen() {
     this.open = !this.open
