@@ -8,8 +8,9 @@
   opacity: 0.85;
   z-index: -1;
   width: 100%;
-  height: calc(100vh - 7%);
-  animation: zoomHeaderBackground 1s;
+  //height: calc(100vh - 7%);
+  height: 100%;
+  //animation: zoomHeaderBackground 1s;
   animation-fill-mode: forwards;
   overflow: hidden;
 }
