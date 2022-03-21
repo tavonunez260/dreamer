@@ -1,5 +1,5 @@
 .header-background {
-  background-size: cover;
+  object-fit: cover;
   position: absolute;
   top: 0;
   right: 0;
@@ -8,9 +8,9 @@
   opacity: 0.85;
   z-index: -1;
   width: 100%;
-  //height: calc(100vh - 7%);
   height: 100%;
+  //height: calc(100vh - 7%);
   //animation: zoomHeaderBackground 1s;
-  animation-fill-mode: forwards;
+  //animation-fill-mode: forwards;
   overflow: hidden;
 }

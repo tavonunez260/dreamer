@@ -14,7 +14,10 @@
 </head>
 <body>
   <header class="header">
-    <img src="./img/headerBackground.jpg" alt="Dreamer Header Background" class="header-background">
+    <picture>
+      <source media="(max-width: 768px)" srcset="./img/headerBackgroundMobile.jpg" class="header-background">
+      <img src="./img/headerBackground.jpg" alt="Dreamer Header Background" class="header-background">
+    </picture>
     <img src="./img/logoDreamerShadow.png" alt="Dreamer Logo" class="logo">
     <div class="navbar__layout">
       <a href="https://www.thedreamer.com/" target="_blank" class="navbar__logo_link">
