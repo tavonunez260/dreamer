@@ -5,15 +5,19 @@ class NavBar {
   responsiveButton = document.querySelector('.navbar--menu-container')
   navbarItems = document.querySelector('.navbar__items')
   navbarLayout = document.querySelector('.navbar__layout')
+  navbarElement = document.querySelectorAll('.navbar__element')
+  navbarLink = document.querySelectorAll('.navbar__link')
+  navbarLogoImg = document.querySelector('.navbar__logo_img')
   header = document.querySelector('.header')
   navbarObserverOptions = {
     root: null,
-    threshold: [0.8],
+    threshold: [0.95, 0.01],
   }
-  constructor() {
+  constructor () {
     this.responsiveButton.addEventListener('click', this._deployResponsiveMenu.bind(this))
+    this._scrollNavbar()
   }
-  _deployResponsiveMenu(e) {
+  _deployResponsiveMenu = (e) => {
     if(!this.open) {
       this.navbarItems.classList.add('active')
       this.navbarItems.classList.remove('inactive')
@@ -24,23 +28,39 @@ class NavBar {
       this._toggleOpen()
     }
   }
-  _navbarObserver() {
+  _navbarObserver = () => {
     return new IntersectionObserver(this._navbarObserverCallback, this.navbarObserverOptions);
   }
-  _navbarObserverCallback(entries, observer) {
+  _navbarObserverCallback = (entries, observer) => {
     const [entry] = entries;
-    console.log(entry);
-    if (!entry.isIntersecting) {
-      this.navbarLayout.classList.add('navbar__layout--sticky');
+    if (entry.intersectionRatio <= 0.95 && entry.isIntersecting) {
+      this.navbarLayout.classList.add('scroll')
+      this.navbarLayout.classList.remove('non-scroll')
+      this.navbarItems.classList.add('scroll')
+      this.navbarItems.classList.remove('non-scroll')
+      this.navbarLink.forEach(link => link.classList.add('scroll'))
+      this.navbarLink.forEach(link => link.classList.remove('non-scroll'))
+      this.navbarElement.forEach(link => link.classList.add('scroll'))
+      this.navbarLogoImg.setAttribute('src', './img/logoDreamer.png')
+    } else {
+      this.navbarLayout.classList.remove('scroll')
+      this.navbarLayout.classList.add('non-scroll')
+      this.navbarItems.classList.remove('scroll')
+      this.navbarItems.classList.add('non-scroll')
+      this.navbarLink.forEach(link => link.classList.remove('scroll'))
+      this.navbarLink.forEach(link => link.classList.add('non-scroll'))
+      this.navbarElement.forEach(link => link.classList.remove('scroll'))
+      this.navbarLogoImg.setAttribute('src', './img/logoDreamerLight.png')
     }
-    if (entry.isIntersecting) {
-      this.navbarLayout.classList.remove('navbar__layout--sticky');
+
+    if (entry.intersectionRatio <= 0.01 && !entry.isIntersecting) {
+      console.log('I am off the screen!')
     }
   }
-  _toggleOpen() {
+  _toggleOpen = () => {
     this.open = !this.open
   }
-  _stickyNavbar() {
+  _scrollNavbar = () => {
     const navbarObserver = this._navbarObserver();
     navbarObserver.observe(this.header);
   }

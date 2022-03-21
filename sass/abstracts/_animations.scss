@@ -23,3 +23,21 @@
   100% { transform: scale(0.9);
   }
 }
+
+@keyframes changeNavbarColorNonStickyTransparentToWhite {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: $white-color;
+  }
+}
+
+@keyframes changeNavbarColorNonStickyWhiteToTransparent {
+  0% {
+    background-color: $white-color;
+  }
+  100% {
+    background-color: transparent;
+  }
+}

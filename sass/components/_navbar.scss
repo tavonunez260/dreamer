@@ -14,6 +14,10 @@
       height: 12rem;
       border-bottom: 1px solid $white-color;
     }
+    &:hover::before {
+      transform: scaleY(1);
+      height: 100%;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -23,19 +27,22 @@
       height: 0;
       background-color: $navbar-color;
       transform: scaleY(0);
-      transition: all 0.4s;
+      transition: all 0.3s;
       transform-origin: bottom;
-      z-index: -1;
+      z-index: 1;
       @media only screen and (max-width: $bp-sm) {
         content: none;
       }
     }
-    &--active {
+    &.active {
       background-color: $navbar-color;
     }
-    &:hover::before {
-      transform: scaleY(1);
-      height: 100%;
+    &.scroll {
+      &:hover .navbar__link {
+        @media only screen and (min-width: $bp-sm) {
+          color: $white-color;
+        }
+      }
     }
   }
   &__items {
@@ -76,14 +83,25 @@
         transform-origin: top;
       }
     }
+    &.scroll {
+      @media only screen and (min-width: $bp-sm) {
+        border-left: 1px $navbar-color solid;
+      }
+    }
+    &.non-scroll {
+      @media only screen and (min-width: $bp-sm){
+        border-left: 1px $white-color solid;
+      }
+    }
   }
   &__layout {
     position: relative;
     display: flex;
     width: 100% ;
-    height: 10rem;
+    height: 8.5rem;
     order: 2;
     justify-content: center;
+    background-color: transparent;
     @media only screen and (min-width: $bp-sm) {
       border-top: 1px $white-color solid;
     }
@@ -91,8 +109,21 @@
       order: 1;
       width: 100%;
       justify-content: space-between;
-      background-color: transparent;
       background-color: $navbar-color;
+    }
+    &.scroll {
+      @media only screen and (min-width: $bp-sm) {
+        animation: changeNavbarColorNonStickyTransparentToWhite 0.3s;
+        animation-fill-mode: forwards;
+        border-top: none;
+        border-bottom: 1px $navbar-color solid;
+      }
+    }
+    &.non-scroll {
+      @media only screen and (min-width: $bp-sm) {
+        animation: changeNavbarColorNonStickyWhiteToTransparent 0.3s;
+        animation-fill-mode: forwards;
+      }
     }
   }
   &__link {
@@ -100,6 +131,8 @@
     letter-spacing: 1px;
     outline: none;
     user-select: none;
+    position: relative;
+    z-index: 2;
     &:link,
     &:visited,
     &:focus {
@@ -107,6 +140,16 @@
       text-transform: uppercase;
       display: block;
       color: $white-color;
+    }
+    &.scroll {
+      @media only screen and (min-width: $bp-sm) {
+        color: $gray-color;
+      }
+    }
+    &.non-scroll {
+      @media only screen and (min-width: $bp-sm){
+        color: $white-color;
+      }
     }
   }
   &__list {
