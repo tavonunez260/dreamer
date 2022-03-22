@@ -27,4 +27,7 @@ body {
   font-family: $font-primary;
   max-width: 100vw;
   overflow-x: hidden;
+  &.hide-overflow {
+    overflow-y: hidden;
+  }
 }

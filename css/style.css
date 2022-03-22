@@ -52,6 +52,8 @@ body {
   font-family: "Rubik", "Sans Serif";
   max-width: 100vw;
   overflow-x: hidden; }
+  body.hide-overflow {
+    overflow-y: hidden; }
 
 header {
   position: relative;
@@ -80,10 +82,11 @@ header {
 
 .logo {
   width: 45%;
-  margin-top: 20vh;
+  margin-top: 12vh;
   order: 1; }
   @media only screen and (max-width: 75em) {
     .logo {
+      margin-top: 14vh;
       width: 60%; } }
   @media only screen and (max-width: 48em) {
     .logo {
@@ -170,10 +173,10 @@ header {
       animation-fill-mode: forwards;
       transform-origin: top; } }
   @media only screen and (min-width: 48.0625em) {
-    .navbar__items--scroll {
+    .navbar__items.scroll, .navbar__items.fixed {
       border-left: 1px #78D4F5 solid; } }
   @media only screen and (min-width: 48.0625em) {
-    .navbar__items--non-scroll {
+    .navbar__items.non-scroll {
       border-left: 1px #FFFFFF solid; } }
 
 .navbar__layout {
@@ -192,7 +195,9 @@ header {
       order: 1;
       width: 100%;
       justify-content: space-between;
-      background-color: #78D4F5; } }
+      background-color: #78D4F5;
+      position: fixed;
+      top: 0; } }
   @media only screen and (min-width: 48.0625em) {
     .navbar__layout.scroll {
       animation: changeNavbarColorNonStickyTransparentToWhite 0.3s;
@@ -203,6 +208,12 @@ header {
     .navbar__layout.non-scroll {
       animation: changeNavbarColorNonStickyWhiteToTransparent 0.3s;
       animation-fill-mode: forwards; } }
+  .navbar__layout.fixed {
+    position: fixed;
+    top: 0; }
+    @media only screen and (min-width: 48.0625em) {
+      .navbar__layout.fixed {
+        border-bottom: 1px #78D4F5 solid; } }
 
 .navbar__link {
   padding: 0 1.5rem;
@@ -221,7 +232,7 @@ header {
     .navbar__link {
       padding: 0 .5rem; } }
   @media only screen and (min-width: 48.0625em) {
-    .navbar__link.scroll {
+    .navbar__link.scroll, .navbar__link.fixed {
       color: #B5B5B5; } }
   @media only screen and (min-width: 48.0625em) {
     .navbar__link.non-scroll {
@@ -246,6 +257,9 @@ header {
   @media only screen and (max-width: 75em) {
     .navbar__logo-container {
       margin: 0 1rem; } }
+  @media only screen and (max-width: 48em) {
+    .navbar__logo-container {
+      margin: 0 2rem; } }
 
 .navbar__logo_img {
   width: 20rem;
@@ -254,14 +268,22 @@ header {
   position: absolute;
   top: 0;
   left: 0; }
+  @media only screen and (max-width: 48em) {
+    .navbar__logo_img {
+      top: .5rem; } }
   .navbar__logo_img--top {
     display: inline-block; }
   .navbar__logo_img--bottom {
     display: none; }
-  .navbar__logo_img--show {
-    display: inline-block; }
-  .navbar__logo_img--hide {
-    display: none; }
+    @media only screen and (min-width: 48.0625em) {
+      .navbar__logo_img--bottom.fixed {
+        display: inline-block; } }
+  @media only screen and (min-width: 48.0625em) {
+    .navbar__logo_img--show {
+      display: inline-block; } }
+  @media only screen and (min-width: 48.0625em) {
+    .navbar__logo_img--hide {
+      display: none; } }
 
 .navbar--menu-container {
   display: none; }

@@ -83,12 +83,12 @@
         transform-origin: top;
       }
     }
-    &--scroll {
+    &.scroll, &.fixed {
       @media only screen and (min-width: $bp-sm1) {
         border-left: 1px $navbar-color solid;
       }
     }
-    &--non-scroll {
+    &.non-scroll {
       @media only screen and (min-width: $bp-sm1){
         border-left: 1px $white-color solid;
       }
@@ -110,6 +110,8 @@
       width: 100%;
       justify-content: space-between;
       background-color: $navbar-color;
+      position: fixed;
+      top: 0;
     }
     &.scroll {
       @media only screen and (min-width: $bp-sm1) {
@@ -123,6 +125,13 @@
       @media only screen and (min-width: $bp-sm1) {
         animation: changeNavbarColorNonStickyWhiteToTransparent 0.3s;
         animation-fill-mode: forwards;
+      }
+    }
+    &.fixed {
+      position: fixed;
+      top: 0;
+      @media only screen and (min-width: $bp-sm1) {
+        border-bottom: 1px $navbar-color solid;
       }
     }
   }
@@ -145,7 +154,7 @@
     @media only screen and (max-width: $bp-lg) {
       padding: 0 .5rem;
     }
-    &.scroll {
+    &.scroll, &.fixed {
       @media only screen and (min-width: $bp-sm1) {
         color: $gray-color;
       }
@@ -175,6 +184,9 @@
     @media only screen and (max-width: $bp-lg) {
       margin: 0 1rem;
     }
+    @media only screen and (max-width: $bp-sm) {
+      margin: 0 2rem;
+    }
   }
   &__logo_img {
     width: 20rem;
@@ -183,17 +195,29 @@
     position: absolute;
     top: 0;
     left: 0;
+    @media only screen and (max-width: $bp-sm) {
+      top: .5rem;
+    }
     &--top {
       display: inline-block;
     }
     &--bottom {
       display: none;
+      &.fixed {
+        @media only screen and (min-width: $bp-sm1) {
+          display: inline-block;
+        }
+      }
     }
     &--show {
-      display: inline-block;
+      @media only screen and (min-width: $bp-sm1) {
+        display: inline-block;
+      }
     }
     &--hide {
-      display: none;
+      @media only screen and (min-width: $bp-sm1) {
+        display: none;
+      }
     }
   }
   &--menu-container {
