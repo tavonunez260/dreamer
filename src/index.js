@@ -7,11 +7,12 @@ class NavBar {
   navbarLayout = document.querySelector('.navbar__layout')
   navbarElement = document.querySelectorAll('.navbar__element')
   navbarLink = document.querySelectorAll('.navbar__link')
-  navbarLogoImg = document.querySelector('.navbar__logo_img')
+  navbarLogoImgTop = document.querySelector('.navbar__logo_img--top')
+  navbarLogoImgBottom = document.querySelector('.navbar__logo_img--bottom')
   header = document.querySelector('.header')
   navbarObserverOptions = {
     root: null,
-    threshold: [0.95, 0.01],
+    threshold: [0.95, 0.05],
   }
   constructor () {
     this.responsiveButton.addEventListener('click', this._deployResponsiveMenu.bind(this))
@@ -19,12 +20,12 @@ class NavBar {
   }
   _deployResponsiveMenu = (e) => {
     if(!this.open) {
-      this.navbarItems.classList.add('active')
-      this.navbarItems.classList.remove('inactive')
+      this.navbarItems.classList.add('navbar__items--active')
+      this.navbarItems.classList.remove('navbar__items--inactive')
       this._toggleOpen()
     } else {
-      this.navbarItems.classList.remove('active')
-      this.navbarItems.classList.add('inactive')
+      this.navbarItems.classList.remove('navbar__items--active')
+      this.navbarItems.classList.add('navbar__items--inactive')
       this._toggleOpen()
     }
   }
@@ -36,21 +37,31 @@ class NavBar {
     if (entry.intersectionRatio <= 0.95 && entry.isIntersecting) {
       this.navbarLayout.classList.add('scroll')
       this.navbarLayout.classList.remove('non-scroll')
-      this.navbarItems.classList.add('scroll')
-      this.navbarItems.classList.remove('non-scroll')
+
+      this.navbarItems.classList.add('navbar__items--scroll')
+      this.navbarItems.classList.remove('navbar__items--non-scroll')
+
       this.navbarLink.forEach(link => link.classList.add('scroll'))
       this.navbarLink.forEach(link => link.classList.remove('non-scroll'))
+
       this.navbarElement.forEach(link => link.classList.add('scroll'))
-      this.navbarLogoImg.setAttribute('src', './img/logoDreamer.png')
+
+      this.navbarLogoImgTop.classList.add('navbar__logo_img--hide')
+      this.navbarLogoImgBottom.classList.add('navbar__logo_img--show')
     } else {
       this.navbarLayout.classList.remove('scroll')
       this.navbarLayout.classList.add('non-scroll')
-      this.navbarItems.classList.remove('scroll')
-      this.navbarItems.classList.add('non-scroll')
+
+      this.navbarItems.classList.remove('navbar__items--scroll')
+      this.navbarItems.classList.add('navbar__items--non-scroll')
+
       this.navbarLink.forEach(link => link.classList.remove('scroll'))
       this.navbarLink.forEach(link => link.classList.add('non-scroll'))
+
       this.navbarElement.forEach(link => link.classList.remove('scroll'))
-      this.navbarLogoImg.setAttribute('src', './img/logoDreamerLight.png')
+
+      this.navbarLogoImgTop.classList.remove('navbar__logo_img--hide')
+      this.navbarLogoImgBottom.classList.remove('navbar__logo_img--show')
     }
 
     if (entry.intersectionRatio <= 0.01 && !entry.isIntersecting) {

@@ -108,7 +108,7 @@ header {
   user-select: none; }
   @media only screen and (max-width: 75em) {
     .navbar__element {
-      margin: 0 -1rem; } }
+      margin: 0 .45rem; } }
   @media only screen and (max-width: 48em) {
     .navbar__element {
       height: 12rem;
@@ -133,7 +133,7 @@ header {
         content: none; } }
   .navbar__element.active {
     background-color: #78D4F5; }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 48.0625em) {
     .navbar__element.scroll:hover .navbar__link {
       color: #FFFFFF; } }
 
@@ -144,7 +144,7 @@ header {
   display: flex;
   align-items: center;
   height: 100%; }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 48.0625em) {
     .navbar__items {
       border-left: 1px #FFFFFF solid; } }
   @media only screen and (max-width: 48em) {
@@ -156,24 +156,24 @@ header {
       top: 100%;
       left: 0; } }
   @media only screen and (max-width: 48em) {
-    .navbar__items.dissapear {
+    .navbar__items--dissapear {
       display: none; } }
   @media only screen and (max-width: 48em) {
-    .navbar__items.active {
+    .navbar__items--active {
       display: block;
       animation: dropDown .3s;
       transform-origin: top; } }
   @media only screen and (max-width: 48em) {
-    .navbar__items.inactive {
+    .navbar__items--inactive {
       display: block;
       animation: dropDownReverse .3s;
       animation-fill-mode: forwards;
       transform-origin: top; } }
-  @media only screen and (min-width: 48em) {
-    .navbar__items.scroll {
+  @media only screen and (min-width: 48.0625em) {
+    .navbar__items--scroll {
       border-left: 1px #78D4F5 solid; } }
-  @media only screen and (min-width: 48em) {
-    .navbar__items.non-scroll {
+  @media only screen and (min-width: 48.0625em) {
+    .navbar__items--non-scroll {
       border-left: 1px #FFFFFF solid; } }
 
 .navbar__layout {
@@ -184,7 +184,7 @@ header {
   order: 2;
   justify-content: center;
   background-color: transparent; }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 48.0625em) {
     .navbar__layout {
       border-top: 1px #FFFFFF solid; } }
   @media only screen and (max-width: 48em) {
@@ -193,13 +193,13 @@ header {
       width: 100%;
       justify-content: space-between;
       background-color: #78D4F5; } }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 48.0625em) {
     .navbar__layout.scroll {
       animation: changeNavbarColorNonStickyTransparentToWhite 0.3s;
       animation-fill-mode: forwards;
       border-top: none;
       border-bottom: 1px #78D4F5 solid; } }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 48.0625em) {
     .navbar__layout.non-scroll {
       animation: changeNavbarColorNonStickyWhiteToTransparent 0.3s;
       animation-fill-mode: forwards; } }
@@ -210,16 +210,20 @@ header {
   outline: none;
   user-select: none;
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent; }
   .navbar__link:link, .navbar__link:visited, .navbar__link:focus {
     text-decoration: none;
     text-transform: uppercase;
     display: block;
     color: #FFFFFF; }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (max-width: 75em) {
+    .navbar__link {
+      padding: 0 .5rem; } }
+  @media only screen and (min-width: 48.0625em) {
     .navbar__link.scroll {
       color: #B5B5B5; } }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 48.0625em) {
     .navbar__link.non-scroll {
       color: #FFFFFF; } }
 
@@ -235,18 +239,29 @@ header {
       text-align: center; } }
 
 .navbar__logo-container {
-  margin: 0 1.6rem; }
+  margin: 0 1.6rem;
+  position: relative;
+  width: 20rem;
+  height: auto; }
+  @media only screen and (max-width: 75em) {
+    .navbar__logo-container {
+      margin: 0 1rem; } }
 
 .navbar__logo_img {
-  display: inline-block;
   width: 20rem;
   height: auto;
-  padding: 1rem; }
-
-.navbar__logo_link {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .navbar__logo_img--top {
+    display: inline-block; }
+  .navbar__logo_img--bottom {
+    display: none; }
+  .navbar__logo_img--show {
+    display: inline-block; }
+  .navbar__logo_img--hide {
+    display: none; }
 
 .navbar--menu-container {
   display: none; }

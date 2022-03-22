@@ -8,7 +8,7 @@
     outline: none;
     user-select: none;
     @media only screen and (max-width: $bp-lg) {
-      margin: 0 -1rem;
+      margin: 0 .45rem;
     }
     @media only screen and (max-width: $bp-sm) {
       height: 12rem;
@@ -39,7 +39,7 @@
     }
     &.scroll {
       &:hover .navbar__link {
-        @media only screen and (min-width: $bp-sm) {
+        @media only screen and (min-width: $bp-sm1) {
           color: $white-color;
         }
       }
@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     height: 100%;
-    @media only screen and (min-width: $bp-sm) {
+    @media only screen and (min-width: $bp-sm1) {
       border-left: 1px $white-color solid;
     }
     @media only screen and (max-width: $bp-sm) {
@@ -63,19 +63,19 @@
       top: 100%;
       left: 0;
     }
-    &.dissapear {
+    &--dissapear {
       @media only screen and (max-width: $bp-sm) {
         display: none;
       }
     }
-    &.active {
+    &--active {
       @media only screen and (max-width: $bp-sm) {
         display: block;
         animation: dropDown .3s;
         transform-origin: top;
       }
     }
-    &.inactive {
+    &--inactive {
       @media only screen and (max-width: $bp-sm) {
         display: block;
         animation: dropDownReverse .3s;
@@ -83,13 +83,13 @@
         transform-origin: top;
       }
     }
-    &.scroll {
-      @media only screen and (min-width: $bp-sm) {
+    &--scroll {
+      @media only screen and (min-width: $bp-sm1) {
         border-left: 1px $navbar-color solid;
       }
     }
-    &.non-scroll {
-      @media only screen and (min-width: $bp-sm){
+    &--non-scroll {
+      @media only screen and (min-width: $bp-sm1){
         border-left: 1px $white-color solid;
       }
     }
@@ -102,7 +102,7 @@
     order: 2;
     justify-content: center;
     background-color: transparent;
-    @media only screen and (min-width: $bp-sm) {
+    @media only screen and (min-width: $bp-sm1) {
       border-top: 1px $white-color solid;
     }
     @media only screen and (max-width: $bp-sm) {
@@ -112,7 +112,7 @@
       background-color: $navbar-color;
     }
     &.scroll {
-      @media only screen and (min-width: $bp-sm) {
+      @media only screen and (min-width: $bp-sm1) {
         animation: changeNavbarColorNonStickyTransparentToWhite 0.3s;
         animation-fill-mode: forwards;
         border-top: none;
@@ -120,7 +120,7 @@
       }
     }
     &.non-scroll {
-      @media only screen and (min-width: $bp-sm) {
+      @media only screen and (min-width: $bp-sm1) {
         animation: changeNavbarColorNonStickyWhiteToTransparent 0.3s;
         animation-fill-mode: forwards;
       }
@@ -133,6 +133,7 @@
     user-select: none;
     position: relative;
     z-index: 2;
+    -webkit-tap-highlight-color: transparent;
     &:link,
     &:visited,
     &:focus {
@@ -141,13 +142,16 @@
       display: block;
       color: $white-color;
     }
+    @media only screen and (max-width: $bp-lg) {
+      padding: 0 .5rem;
+    }
     &.scroll {
-      @media only screen and (min-width: $bp-sm) {
+      @media only screen and (min-width: $bp-sm1) {
         color: $gray-color;
       }
     }
     &.non-scroll {
-      @media only screen and (min-width: $bp-sm){
+      @media only screen and (min-width: $bp-sm1){
         color: $white-color;
       }
     }
@@ -165,17 +169,32 @@
   }
   &__logo-container {
     margin: 0 1.6rem;
+    position: relative;
+    width: 20rem;
+    height: auto;
+    @media only screen and (max-width: $bp-lg) {
+      margin: 0 1rem;
+    }
   }
   &__logo_img {
-    display: inline-block;
     width: 20rem;
     height: auto;
     padding: 1rem;
-  }
-  &__logo_link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &--top {
+      display: inline-block;
+    }
+    &--bottom {
+      display: none;
+    }
+    &--show {
+      display: inline-block;
+    }
+    &--hide {
+      display: none;
+    }
   }
   &--menu-container {
     display: none;
