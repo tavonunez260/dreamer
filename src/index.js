@@ -65,12 +65,15 @@ class NavBar {
       this.navbarItems.classList.add('fixed')
       this.navbarLink.forEach(link => link.classList.remove('non-scroll'))
       this.navbarLink.forEach(link => link.classList.add('fixed'))
+      this.navbarElement.forEach(link => link.classList.remove('scroll'))
+      this.navbarElement.forEach(link => link.classList.add('fixed'))
 
     } else {
       this.navbarLayout.classList.remove('fixed')
       this.navbarLogoImgBottom.classList.remove('fixed')
       this.navbarItems.classList.remove('fixed')
       this.navbarLink.forEach(link => link.classList.remove('fixed'))
+      this.navbarElement.forEach(link => link.classList.remove('fixed'))
 
     }
   }
