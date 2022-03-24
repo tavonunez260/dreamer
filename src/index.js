@@ -19,7 +19,7 @@ class NavBar {
     this._scrollNavbar()
   }
   _deployResponsiveMenu = (e) => {
-    if(!this.open) {
+    if(!this.open && window.innerWidth <= 768) {
       this.navbarItems.classList.add('navbar__items--active')
       this.navbarItems.classList.remove('navbar__items--inactive')
       body.classList.add('hide-overflow')
@@ -36,7 +36,7 @@ class NavBar {
   }
   _navbarObserverCallback = (entries, observer) => {
     const [entry] = entries;
-    if (entry.intersectionRatio <= 0.95 && entry.isIntersecting) {
+    if (entry.intersectionRatio <= 0.95 && entry.isIntersecting && window.innerWidth > 768) {
       this.navbarLayout.classList.add('scroll')
       this.navbarLayout.classList.remove('non-scroll')
       this.navbarItems.classList.add('scroll')
@@ -57,8 +57,7 @@ class NavBar {
       this.navbarLogoImgTop.classList.remove('navbar__logo_img--hide')
       this.navbarLogoImgBottom.classList.remove('navbar__logo_img--show')
     }
-
-    if (entry.intersectionRatio <= 0.01 && !entry.isIntersecting) {
+    if (entry.intersectionRatio <= 0.01 && !entry.isIntersecting && window.innerWidth > 768) {
       this.navbarLayout.classList.add('fixed')
       this.navbarLogoImgBottom.classList.add('fixed')
       this.navbarItems.classList.remove('non-scroll')
@@ -74,7 +73,6 @@ class NavBar {
       this.navbarItems.classList.remove('fixed')
       this.navbarLink.forEach(link => link.classList.remove('fixed'))
       this.navbarElement.forEach(link => link.classList.remove('fixed'))
-
     }
   }
   _toggleOpen = () => {
@@ -86,4 +84,7 @@ class NavBar {
   }
 }
 
+class Restaurant {
+
+}
 const navBar = new NavBar()

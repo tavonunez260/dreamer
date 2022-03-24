@@ -1,6 +1,24 @@
+@font-face {
+  font-family: bigJohnProLight;
+  src: url("../fonts/Big John PRO/bigjohnpro-light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: bigJohnProRegular;
+  src: url("../fonts/Big John PRO/bigjohnpro-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: bigJohnProBold;
+  src: url("../fonts/Big John PRO/bigjohnpro-bold.otf") format("opentype");
+}
+
 //////////////////////////////////////////////
 //Font variables
 $font-primary: 'Rubik', 'Sans Serif';
+$font-secondary-light: bigJohnProLight;
+$font-secondary-regular: bigJohnProRegular;
+$font-secondary-bold: bigJohnProBold;
 
 //////////////////////////////////////////////
 //Colors
@@ -12,7 +30,9 @@ $secondary-color-4: #01A781;
 $secondary-color-5: #825418;
 $navbar-color: #78D4F5;
 $white-color: #FFFFFF;
-$gray-color: #B5B5B5;
+$gray-color-1: #B5B5B5;
+$gray-color-2: #706F6F;
+$black-color: #000000;
 
 //////////////////////////////////////////////
 //Responsive breakpoints

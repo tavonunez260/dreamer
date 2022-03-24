@@ -1,3 +1,15 @@
+@font-face {
+  font-family: bigJohnProLight;
+  src: url("../fonts/Big John PRO/bigjohnpro-light.otf") format("opentype"); }
+
+@font-face {
+  font-family: bigJohnProRegular;
+  src: url("../fonts/Big John PRO/bigjohnpro-regular.otf") format("opentype"); }
+
+@font-face {
+  font-family: bigJohnProBold;
+  src: url("../fonts/Big John PRO/bigjohnpro-bold.otf") format("opentype"); }
+
 @keyframes dropDown {
   0% {
     transform: scaleY(0); }
@@ -55,17 +67,36 @@ body {
   body.hide-overflow {
     overflow-y: hidden; }
 
+.margin-top-intro {
+  margin-top: 6.5rem; }
+  @media only screen and (max-width: 48em) {
+    .margin-top-intro {
+      margin-top: 7.5rem; } }
+
+.margin-bottom-intro {
+  margin-bottom: 6.5rem; }
+  @media only screen and (max-width: 48em) {
+    .margin-bottom-intro {
+      margin-bottom: 7.5rem; } }
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none; }
+
 header {
   position: relative;
   height: 100vh;
-  max-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center; }
 
 .main {
-  height: 100vh; }
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
 
 .header-background {
   object-fit: cover;
@@ -213,9 +244,13 @@ header {
     top: 0; }
     @media only screen and (min-width: 48.0625em) {
       .navbar__layout.fixed {
-        border-bottom: 1px #78D4F5 solid; } }
+        animation: dropDown .3s;
+        transform-origin: top;
+        border-bottom: 1px #78D4F5 solid;
+        background-color: #FFFFFF; } }
 
 .navbar__link {
+  font-family: bigJohnProRegular;
   padding: 0 1.5rem;
   letter-spacing: 1px;
   outline: none;
@@ -301,3 +336,75 @@ header {
   margin: 1rem;
   flex-basis: 50%;
   fill: #FFFFFF; }
+
+.main-img {
+  background-image: url("../img/piscina.jpg");
+  background-position: right;
+  background-size: cover;
+  height: 80vh;
+  width: 100%; }
+  @media only screen and (max-width: 75em) {
+    .main-img {
+      height: 60vh; } }
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center; }
+  .intro__title {
+    font-family: bigJohnProBold;
+    display: inline-block;
+    width: 70vw;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #78D4F5;
+    line-height: 3rem; }
+    @media only screen and (max-width: 75em) {
+      .intro__title {
+        font-size: 2rem; } }
+  .intro__waves {
+    width: 100%;
+    height: 20vh;
+    object-fit: fill; }
+
+.experiences {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh; }
+  .experiences__title {
+    width: 30vw;
+    color: #706F6F;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #706F6F;
+    margin: 7rem 0;
+    line-height: 0.45rem; }
+    .experiences__title span {
+      background: #FFFFFF;
+      padding: 0 3rem; }
+    @media only screen and (max-width: 75em) {
+      .experiences__title {
+        width: 40vw; } }
+    @media only screen and (max-width: 48em) {
+      .experiences__title {
+        width: 50vw; } }
+  .experiences__button {
+    font-size: 2rem;
+    padding: 1.6rem 8rem;
+    background: #78D4F5;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    transition: background-color .5s; }
+    .experiences__button:hover {
+      background-color: #0098CE;
+      transition: background-color .5s; }

@@ -131,11 +131,15 @@
       position: fixed;
       top: 0;
       @media only screen and (min-width: $bp-sm1) {
+        animation: dropDown .3s;
+        transform-origin: top;
         border-bottom: 1px $navbar-color solid;
+        background-color: $white-color;
       }
     }
   }
   &__link {
+    font-family: $font-secondary-regular;
     padding: 0 1.5rem;
     letter-spacing: 1px;
     outline: none;
@@ -156,7 +160,7 @@
     }
     &.scroll, &.fixed {
       @media only screen and (min-width: $bp-sm1) {
-        color: $gray-color;
+        color: $gray-color-1;
       }
     }
     &.non-scroll {
