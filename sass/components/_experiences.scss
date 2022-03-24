@@ -1,0 +1,42 @@
+.experiences {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  &__title {
+    width: 30vw;
+    color: $gray-color-2;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 2px solid $gray-color-2;
+    margin: 7rem 0;
+    line-height: 0.45rem;
+    & span {
+      background: $white-color;
+      padding: 0 3rem;
+    }
+    @media only screen and (max-width: $bp-lg) {
+      width: 40vw;
+    }
+    @media only screen and (max-width: $bp-sm) {
+      width: 50vw;
+    }
+  }
+  &__button {
+    font-size: 2rem;
+    padding: 1.6rem 8rem;
+    background: $navbar-color;
+    text-transform: uppercase;
+    color: $white-color;
+    transition: background-color .5s;
+    &:hover {
+      background-color: $primary-color;
+      transition: background-color .5s;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    font-family: $font-secondary-bold;
+    display: inline-block;
+    width: 70vw;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $navbar-color;
+    line-height: 3rem;
+    @media only screen and (max-width: $bp-lg) {
+      font-size: 2rem;
+    }
+  }
+  &__waves {
+    width: 100%;
+    height: 20vh;
+    object-fit: fill;
+  }
+}

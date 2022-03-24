@@ -1,0 +1,10 @@
+.main-img {
+  background-image: url("../img/piscina.jpg");
+  background-position: right;
+  background-size: cover;
+  height: 80vh;
+  width: 100%;
+  @media only screen and (max-width: $bp-lg) {
+    height: 60vh;
+  }
+}
